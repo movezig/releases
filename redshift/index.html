@@ -6,14 +6,14 @@
   <title>Redshift for macOS</title>
   <style>
     :root {
-      --bg: #1a1a2e;
-      --surface: #16213e;
-      --card: #1c2a4a;
-      --text: #e0e0e0;
-      --text-muted: #a0a0b8;
-      --accent: #e85d3a;
-      --accent-hover: #f06a48;
-      --warm: #f5c57a;
+      --bg: #222222;
+      --surface: #2a2a2a;
+      --card: #333333;
+      --text: #cccccc;
+      --text-muted: #aaaaaa;
+      --accent: #cc1a1a;
+      --accent-hover: #e02020;
+      --warm: #cccccc;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,15 +29,21 @@
     .hero {
       text-align: center;
       padding: 5rem 1.5rem 3rem;
-      background: linear-gradient(180deg, #1a1020 0%, var(--bg) 100%);
+      background: linear-gradient(180deg, #2a1a1a 0%, var(--bg) 100%);
+    }
+
+    .hero .icon-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.5rem;
     }
 
     .hero img {
       width: 128px;
       height: 128px;
       border-radius: 24px;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 8px 32px rgba(232, 93, 58, 0.25);
+      display: block;
+      box-shadow: 0 8px 32px rgba(204, 26, 26, 0.25);
     }
 
     .hero h1 {
@@ -55,16 +61,17 @@
     }
 
     .badge {
-      display: inline-block;
+      position: absolute;
+      top: -8px;
+      right: -16px;
       background: var(--accent);
       color: #fff;
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      padding: 0.25rem 0.65rem;
+      padding: 0.2rem 0.5rem;
       border-radius: 6px;
-      margin-bottom: 1.5rem;
     }
 
     .download-btn {
@@ -223,8 +230,10 @@
 <body>
 
   <div class="hero">
-    <img src="app-icon.png" alt="Redshift app icon">
-    <div class="badge">Beta</div>
+    <div class="icon-wrap">
+      <img src="app-icon.png" alt="Redshift app icon">
+      <div class="badge">Beta</div>
+    </div>
     <h1>Redshift</h1>
     <p class="tagline">A tiny, native macOS menu-bar app that warms, dims, and color-balances your display so your screen is easier on your eyes.</p>
     <a class="download-btn" href="https://github.com/movezig/releases/releases/download/redshift-v0.1.0-beta/Redshift.dmg">Download Beta</a>
