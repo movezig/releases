@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redshift for macOS</title>
+  <style>
+    :root {
+      --bg: #1a1a2e;
+      --surface: #16213e;
+      --card: #1c2a4a;
+      --text: #e0e0e0;
+      --text-muted: #a0a0b8;
+      --accent: #e85d3a;
+      --accent-hover: #f06a48;
+      --warm: #f5c57a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 5rem 1.5rem 3rem;
+      background: linear-gradient(180deg, #1a1020 0%, var(--bg) 100%);
+    }
+
+    .hero img {
+      width: 128px;
+      height: 128px;
+      border-radius: 24px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 32px rgba(232, 93, 58, 0.25);
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero .tagline {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 2rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+    }
+
+    .download-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 0.85rem 2.2rem;
+      border-radius: 12px;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .download-btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .download-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+    }
+
+    .download-note a {
+      color: var(--text-muted);
+      text-decoration: underline;
+    }
+
+    .download-note a:hover {
+      color: var(--text);
+    }
+
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--warm);
+    }
+
+    .section p {
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 520px) {
+      .features { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2rem; }
+    }
+
+    .feature-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .steps {
+      list-style: none;
+      padding: 0;
+      counter-reset: step;
+    }
+
+    .steps li {
+      color: var(--text-muted);
+      padding: 0.4rem 0;
+      font-size: 0.95rem;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      width: 1.4rem;
+      height: 1.4rem;
+      background: var(--card);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 1.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--warm);
+    }
+
+    .callout {
+      background: var(--card);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .callout h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .callout p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .callout a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .callout a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <img src="app-icon.png" alt="Redshift app icon">
+    <div class="badge">Beta</div>
+    <h1>Redshift</h1>
+    <p class="tagline">A tiny, native macOS menu-bar app that warms, dims, and color-balances your display so your screen is easier on your eyes.</p>
+    <a class="download-btn" href="https://github.com/movezig/releases/releases/download/redshift-v0.1.0-beta/Redshift.dmg">Download Beta</a>
+    <p class="download-note">Requires macOS Sonoma (14.0) or later &middot; Apple Silicon<br><a href="https://github.com/movezig/releases/releases?q=redshift&expanded=true">All versions</a></p>
+  </div>
+
+  <div class="content">
+
+    <div class="section">
+      <h2>What it does</h2>
+      <p>Redshift lives in your menu bar and gives you instant control over your display's warmth, brightness, and color balance. Set it once and forget it, or use the built-in scheduler to automatically shift your screen from day to night.</p>
+      <div class="features">
+        <div class="feature-card">
+          <h3>Red Shift</h3>
+          <p>Overlay a warm red tint to cut blue light. Adjustable from 0 to 100.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Brightness</h3>
+          <p>Dim your display below the system minimum for comfortable late-night use.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Channel Balancing</h3>
+          <p>Fine-tune red, green, blue, and contrast individually for a picture that looks right to you.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Profiles</h3>
+          <p>Save your favorite setups and recall them instantly. Comes with five built-in presets.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Scheduler</h3>
+          <p>Automatically fade between a daytime and evening profile at the times you choose.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Privacy First</h3>
+          <p>Fully local. No analytics, no data collection, nothing leaves your Mac.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Getting started</h2>
+      <ol class="steps">
+        <li>Click <strong>Download Beta</strong> above to get Redshift.dmg</li>
+        <li>Open the DMG and drag <strong>Redshift</strong> to your Applications folder</li>
+        <li>Right-click the app and choose <strong>Open</strong>, then click <strong>Open</strong> in the dialog (one-time step &mdash; Redshift is not yet notarized during beta)</li>
+        <li>Approve the <strong>Screen Recording</strong> permission when macOS asks &mdash; this is needed for the display overlays and nothing is ever recorded or transmitted</li>
+        <li>Look for the red/white circle in your <strong>menu bar</strong> &mdash; click it to open the control panel</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>Questions, bugs, or feedback?</h2>
+      <p>This is a beta, and your feedback helps shape the app. If you run into a bug, have a question, or want to suggest a feature, open an issue on GitHub &mdash; all you need is a free GitHub account.</p>
+      <div class="callout">
+        <h3>Open an issue</h3>
+        <p><a href="https://github.com/movezig/releases/issues/new?labels=redshift&title=[Redshift]%20">Submit a bug report or feature request</a></p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>&copy; 2026 Ben Phillips</footer>
+
+</body>
+</html>
